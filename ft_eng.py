@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-race_data = pd.read_csv("/Users/leomccarthy/Documents/Projects/Horse_racing/rpscrape1/data/flat/gb/2013_2019_clean.csv")
+race_data = pd.read_csv("rpscrape1/data/flat/gb/2013_2019_clean.csv")
 #Remove non finishers
 didnt_finish = ["PU","SU","F","LFT","RR","RO","REF","BD","0","UR","DSQ"]
 race_data = race_data.loc[~race_data.Pos.isin(didnt_finish)]
