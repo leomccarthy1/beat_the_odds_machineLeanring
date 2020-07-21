@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.calibration import CalibratedClassifierCV
 
-race_data = pd.read_csv("/Users/leomccarthy/Documents/Projects/Horse_racing/rpscrape1/data/flat/gb/2013_2019_v1.csv")
+race_data = pd.read_csv("rpscrape1/data/flat/gb/2013_2019_v1.csv")
 race_data["Date"] = race_data["Date"].astype('datetime64')
 
 
@@ -87,11 +87,7 @@ param['metric'] = 'binary_logloss'
 
 bst = lgb.train(train_set = train_lgb,valid_sets=[val_lgb],params = param,num_boost_round=5000,verbose_eval = True, early_stopping_rounds = 30)
 
-race_data.iloc[:,300:600]
 
-log_loss(y_test,1/race_test["Dec"])
-log_loss(y_test,bst.predict(X_test))
-Search_result.best_estimator_
 
 explainer = shap.TreeExplainer(bst)
 shap_values = explainer.shap_values(X_test)
@@ -139,11 +135,8 @@ plt.plot([0, 1], [0, 1], linestyle='--')
 plt.plot(mpv, fop, marker='.')
 plt.show()
 
-log_loss(y_test,clfLGB.predict_proba(X_test)[:,1])
 
-calibrator = CalibratedClassifierCV(clfLGB, cv='prefit', method = "isotonic")
-calibrator.fit(X_val, y_val)
-calibrator.predict_proba(X_test)[:,1]
+
 
 SP = race_data.loc[X_val.index,"Dec"]
 
