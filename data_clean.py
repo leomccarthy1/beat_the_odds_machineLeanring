@@ -4,7 +4,7 @@
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing
-raw_race = pd.read_csv("/Users/leomccarthy/Documents/Projects/Horse_racing/rpscrape1/data/flat/gb/2013-2019.csv")
+raw_race = pd.read_csv("rpscrape1/data/flat/gb/2013-2019.csv")
 
 #Create individual race ID's
 races = raw_race["Date"] + raw_race["Course"] + raw_race["Off"]
