@@ -235,4 +235,4 @@ num_int = [i for i in num_int if i not in none_features]
 race_data[num_int] = race_data[num_int].apply(lambda x: (x - x.mean())/x.std())
 
 race_data.fillna(0, inplace = True)
-race_data.to_csv("/Users/leomccarthy/Documents/Projects/Horse_racing/rpscrape1/data/flat/gb/2013_2019_v1.csv", index = False)
+race_data.to_csv("rpscrape1/data/flat/gb/2013_2019_v1.csv", index = False)
